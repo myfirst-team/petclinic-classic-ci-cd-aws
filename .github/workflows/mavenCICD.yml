@@ -1,13 +1,13 @@
 name: CI/CD
 
 env:
-  EB_PACKAGE_S3_BUCKET_NAME : "demo-bucket-cicd"
+  EB_PACKAGE_S3_BUCKET_NAME : "flash-github1"
   DEPLOY_PACKAGE_NAME       : "flask-app-${{ github.sha }}.jar"
   AWS_REGION_NAME           : "us-east-1"
   
 
 on:
-  pull_request:
+  push:
     branches:
       - master
 

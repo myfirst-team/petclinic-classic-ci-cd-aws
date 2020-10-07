@@ -1,0 +1,23 @@
+version: 0.0
+os: linux
+files:
+  - source: /home/runner/work/Codedeploy-aws/clmaster.war
+    destination: /opt/wildfly/standalone/deployment/
+
+permissions:
+  - object: /opt/
+    pattern: "**"
+    owner: root
+    group: root
+    mode: 755
+    type:
+      - directory
+hooks:
+  BeforeInstall:
+  - location: scripts/BACKUP.sh
+    timeout: 100
+    runas: root
+  AfterInstall:
+  - location: scripts/ROLLBACK.sh
+    timeout: 500
+    runas: root

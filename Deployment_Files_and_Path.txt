@@ -1,0 +1,2 @@
+opt/wildfly/standalone/deployments/petclinic.war
+
